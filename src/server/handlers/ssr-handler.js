@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 import clientEnv from 'environments/client';
 import routes from 'src/configs/routes';
 import { createNewStore } from 'src/store';
-import { createNewContext } from 'src/initialSSRData';
-import { initSSRContextValue } from 'src/initialSSRData/utils';
+import { createNewContext } from 'src/services/initial-ssr-data';
+import { initSSRContextValue } from 'src/services/initial-ssr-data/utils';
 import { getEnv, isProd } from 'src/utils/env';
 import AppRouter from 'src/AppRouter';
 

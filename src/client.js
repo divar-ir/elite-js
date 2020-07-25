@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import store from 'src/store';
-import { getContext } from 'src/initialSSRData';
-import initialSSRDataValue from 'src/initialSSRData/client';
+import { getContext } from 'src/services/initial-ssr-data';
+import initialSSRDataValue from 'src/services/initial-ssr-data/client';
 
 import 'src/styles/main.scss';
 
