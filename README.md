@@ -107,11 +107,11 @@ divar-starter-kit comes with a suggested project structure looks like:
 |                                 /build/public and served by server, like sitemap or favicon.
 ├── /src/                       # The source code of the application.
     ├── /configs/               # Project wide configs like
- 	|                             router config, paths, constants, API endoints.
+    |                             router config, paths, constants, API endoints.
     ├── /services/              # Project wide services like HTTP or GTM.
     ├── /shared-components/     # Components that used in many components/views [*].
     ├── /store/                 # Stores will be here.
-    |							  DUCKS structure suggested for stores.
+    |				  DUCKS structure suggested for stores.
     ├── /styles/                # Shared styles.
     ├── /utils/                 # Project wide helper functions.
     ├── /views/                 # Pages/Views/Screens [*].
@@ -126,7 +126,7 @@ divar-starter-kit comes with a suggested project structure looks like:
 ComponentName
 ├── /index.jsx             # Component file.
 ├── /ComponentName.[scss,sass,css,module.*] 
-|						   # Component style file.
+|                          # Component style file.
 ├── /compponents/          # Component child components will be here.
 ├── /requests.js           # API call/transformer functions.
 ├── /configs/              # Component config file or folder for
