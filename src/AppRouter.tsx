@@ -1,6 +1,6 @@
 import { renderRoutes } from 'react-router-config';
 
-import routes from 'src/configs/routes';
+import routes from './configs/routes';
 
 function AppRouter() {
   return renderRoutes(routes);

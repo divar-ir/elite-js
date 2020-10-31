@@ -3,7 +3,7 @@ import JSONStorageAccessor from './JSONStorageAccessor';
 import BooleanStorageAccessor from './BooleanStorageAccessor';
 
 export {
-  StorageAccessor,
-  JSONStorageAccessor,
-  BooleanStorageAccessor,
+    StorageAccessor,
+    JSONStorageAccessor,
+    BooleanStorageAccessor,
 };

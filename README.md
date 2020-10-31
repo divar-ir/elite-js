@@ -116,7 +116,7 @@ divar-starter-kit comes with a suggested project structure looks like:
     ├── /utils/                 # Project wide helper functions.
     ├── /views/                 # Pages/Views/Screens [*].
     |                             Components that directly connected to a URL.
-    ├── /client.js              # Client-side startup script.
+    ├── /client.tsx              # Client-side startup script.
 ```
 
 [*]: Views/Shared-components can be a single JSX (like ComponentName.jsx)
@@ -124,14 +124,14 @@ divar-starter-kit comes with a suggested project structure looks like:
 
 ```
 ComponentName
-├── /index.jsx             # Component file.
+├── /index.tsx             # Component file.
 ├── /ComponentName.[scss,sass,css,module.*] 
 |						   # Component style file.
 ├── /compponents/          # Component child components will be here.
 ├── /requests.js           # API call/transformer functions.
 ├── /configs/              # Component config file or folder for
 |							 Constants, router config (for nested routing), etc.
-├── /utils.js              # Component helper functions.
+├── /utils.ts              # Component helper functions.
 ```
 
 ## Inspiration
