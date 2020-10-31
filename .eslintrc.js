@@ -22,6 +22,42 @@ module.exports = {
         ]
       }
     ],
+    "lines-between-class-members": "error",
+    "padding-line-between-statements": [
+      1,
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+    ],
+    "object-curly-newline": [
+      2,
+      {
+        "multiline": true,
+        "minProperties": 4,
+        "consistent": true
+      },
+    ],
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "html": "enforce",
+        "custom": "ignore",
+        "explicitSpread": "ignore",
+      },
+    ],
+    "import/order": [
+      1,
+      {
+        "newlines-between": "always",
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"],
+        ],
+      }
+    ]
   },
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -40,6 +76,9 @@ module.exports = {
       "node": {
         "paths": [__dirname],
       },
+      "webpack": {
+        "config": "webpack.config.js"
+      }
     },
   }
 }
