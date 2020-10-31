@@ -10,6 +10,7 @@ divar-starter-kit is a React.js SSR-ready boilerplate using Razzle by [divar.ir]
 * Using React-router-config.
 * Recommended Directory Layout.
 * HTTP service included (using [Axios](https://github.com/axios/axios)).
+* Configured ESlint and Stlyint
 
 ## Quick Start
 
