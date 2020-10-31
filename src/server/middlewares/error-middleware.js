@@ -1,4 +1,5 @@
 import { isProd } from 'src/utils/env';
+
 import errorPage from '../templates/error-template.hbs';
 
 /**

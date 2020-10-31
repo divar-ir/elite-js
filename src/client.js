@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import store from 'src/store';
 import { getContext } from 'src/services/initial-ssr-data';
+// eslint-disable-next-line import/order
 import initialSSRDataValue from 'src/services/initial-ssr-data/client';
 
 import 'src/styles/main.scss';

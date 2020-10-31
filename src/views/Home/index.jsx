@@ -1,5 +1,6 @@
 import React from 'react';
 import MetaTags from 'react-helmet';
+
 import logo from 'src/assets/logo.svg';
 
 import './Home.scss';

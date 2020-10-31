@@ -4,6 +4,7 @@ let SSRContext = createContext();
 
 export function createNewContext() {
   SSRContext = createContext();
+
   return SSRContext;
 }
 
