@@ -9,7 +9,9 @@
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
     "start:prod": "NODE_ENV=production node build/server.js",
-    "lint": "eslint --ext .jsx,.js src/"
+    "lint": "yarn lint:script && yarn lint:style",
+    "lint:script": "eslint --ext .jsx,.js src/",
+    "lint:style": "stylelint 'src/**/*.scss'"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -24,7 +26,9 @@
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.7.4",
