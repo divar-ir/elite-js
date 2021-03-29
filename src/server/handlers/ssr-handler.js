@@ -53,17 +53,21 @@ function getInitialPropsList({ renderBranch, store: { getState, dispatch }, req 
       // to find the final wrapped component which contains the static server-side methods
       const {
         component: { serverSideInitial },
-        hasSSRData: hasPreloadedData,
+        hasSSRData: wrappedInWithSSRData,
       } = findFinalComponent(component);
 
       if (!serverSideInitial) {
         return initialPropsList;
       }
 
+      const dataPromise = serverSideInitial({ getState, dispatch, req });
+      const serverSideInitialReturns = dataPromise !== undefined;
+      const hasPreloadedData = serverSideInitialReturns || wrappedInWithSSRData;
+
       return initialPropsList.concat({
         path,
         hasPreloadedData,
-        dataPromise: serverSideInitial({ getState, dispatch, req }),
+        dataPromise,
       });
     },
     [],
