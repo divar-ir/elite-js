@@ -20,3 +20,12 @@ export function findFinalComponent(component) {
     hasSSRData: isWrappedInWithSSRDataHOC,
   };
 }
+
+export function getComponent(component, routeRenderer) {
+  // because route renderers are a wrapper around the actual component,
+  // they return the element created by react and not the actual component so we 
+  // need to point to the actual component which is stored in the 'type' property
+  // in the returned react element
+  const reactElement = routeRenderer ? routeRenderer() : null;
+  return reactElement ? reactElement.type : component;
+}

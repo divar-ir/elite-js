@@ -13,7 +13,7 @@ import { initSSRContextValue } from 'src/services/initial-ssr-data/utils';
 import { getEnv, isProd } from 'src/utils/env';
 import AppRouter from 'src/AppRouter';
 
-import { findFinalComponent } from '../utils';
+import { findFinalComponent, getComponent } from '../utils';
 import pageTemplate from '../templates/page-template.hbs';
 
 // eslint-disable-next-line import/no-dynamic-require
@@ -45,7 +45,10 @@ function renderPage({ appHtml, preloadedData, preloadedState }) {
 
 function getInitialPropsList({ renderBranch, store: { getState, dispatch }, req }) {
   return renderBranch.reduce(
-    (initialPropsList, { route: { component, path } }) => {
+    (initialPropsList, { route: { component: routeComponent, render: routeRenderer, path } }) => {
+
+      const component = getComponent(routeComponent, routeRenderer);
+
       // Due to usage of HOCs, we have to traverse the component tree
       // to find the final wrapped component which contains the static server-side methods
       const {
