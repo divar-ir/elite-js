@@ -45,8 +45,16 @@ function renderPage({ appHtml, preloadedData, preloadedState }) {
 
 function getInitialPropsList({ renderBranch, store: { getState, dispatch }, req }) {
   return renderBranch.reduce(
-    (initialPropsList, { route: { component: routeComponent, render: routeRenderer, path } }) => {
-
+    (
+      initialPropsList,
+      {
+        route:
+         {
+           component: routeComponent,
+           render: routeRenderer, path,
+         },
+      },
+    ) => {
       const component = getComponent(routeComponent, routeRenderer);
 
       // Due to usage of HOCs, we have to traverse the component tree
