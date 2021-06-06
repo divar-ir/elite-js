@@ -64,7 +64,7 @@ Runs linter.
 Only views can be SSR. Views are components that directly connected to a URL. To do SSR you need just 2 simple steps:
 
 
-* Add `serverSideInitial` static method to your view to do side-effects, dispatch actions to store or return values and promises.
+* Just add `serverSideInitial` static method to your view to do side-effects, dispatch actions to store or return values and promises.
 
 ```
  static serverSideInitial({ dispatch, req }) {
@@ -85,7 +85,7 @@ Only views can be SSR. Views are components that directly connected to a URL. To
 
 ```
 
-* Wrap the view with `withSSRData` HOC to get value returned by `serverSideInitial` as `props.initialSSRData`.
+* Now get value returned by `serverSideInitial` as `props.initialSSRData`.
 
 ```
 Component.propTypes = {
@@ -94,7 +94,7 @@ Component.propTypes = {
   }),
 };
  
-export default withSSRData(Component);
+export default Component;
 ```
 
 ## Directory Layout
