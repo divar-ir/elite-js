@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import MetaTags from 'react-helmet';
 
 import logo from 'src/assets/logo.svg';
-import withSSRData from 'src/shared-components/withSSRData';
 
 import { getHomeTitle } from './requests';
 
@@ -41,4 +40,4 @@ Home.propTypes = {
   }).isRequired,
 };
 
-export default withSSRData(Home);
+export default Home;
