@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import { getContext } from 'src/services/initial-ssr-data';
 import { getDisplayName } from 'src/utils/hoc';
 import { getEnv } from 'src/utils/env';
+
+import { getContext } from './index';
 
 function withSSRData(WrappedComponent) {
   class WithSSRDataComponent extends Component {
