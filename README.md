@@ -89,8 +89,9 @@ Only views can be SSR. Views are components that directly connected to a URL. To
 
 ```
 Component.propTypes = {
-   initialSSRData: PropTypes.shape({
-   posts: PropTypes.array(),
+  initialSSRData: PropTypes.shape({
+    posts: PropTypes.array(),
+  }),
 };
  
 export default Component;
