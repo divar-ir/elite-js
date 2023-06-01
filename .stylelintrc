@@ -1,9 +1,0 @@
-{
-  "extends": "stylelint-config-standard",
-  "rules": {
-    "selector-class-pattern": [
-      "^[a-z]+(-[a-z\\d]+)*(__[a-z]+(-[a-z\\d]+)*)?(--[a-z]+(-[a-z\\d]+)*)?$",
-      { "resolveNestedSelectors": true }
-    ]
-  }
-}

@@ -1,11 +1,24 @@
 module.exports = {
-  "extends": [
-    "eslint:recommended",
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb",
-    "plugin:react-hooks/recommended"
+    "airbnb/hooks",
+    "airbnb-typescript",
   ],
-  "parser": "babel-eslint",
-  "rules": {
+  plugins: [
+    "import"
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': 'warn',
     "no-plusplus": [
       2,
       {
@@ -18,7 +31,8 @@ module.exports = {
       {
         "extensions": [
           ".js",
-          ".jsx"
+          ".jsx",
+          ".tsx"
         ]
       }
     ],
@@ -29,7 +43,7 @@ module.exports = {
         "blankLine": "always",
         "prev": "*",
         "next": "return"
-      },
+      }
     ],
     "object-curly-newline": [
       2,
@@ -37,48 +51,70 @@ module.exports = {
         "multiline": true,
         "minProperties": 4,
         "consistent": true
-      },
+      }
     ],
-    "react/jsx-props-no-spreading": [
-      2,
-      {
-        "html": "enforce",
-        "custom": "ignore",
-        "explicitSpread": "ignore",
-      },
-    ],
+    "react/jsx-props-no-spreading": 0,
+    "@typescript-eslint/default-param-last": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-use-before-define": 0,
     "import/order": [
       1,
       {
         "newlines-between": "always",
         "groups": [
-          ["builtin", "external"],
+          [
+            "builtin",
+            "external"
+          ],
           "internal",
-          ["parent", "sibling", "index"],
-        ],
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ]
       }
-    ]
+    ],
+    "import/prefer-default-export": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "warn",
+    "react/require-default-props": "off",
+    "class-methods-use-this": "off",
+    "import/no-anonymous-default-export": "off"
   },
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
+  overrides: [
+    {
+      files: [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      extends: [
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended"
+      ]
+    }
+  ],
+  settings: {
+    react: {
+      version: "detect"
+    },
+    "import/resolver": {
+      node: {
+        moduleDirectory: [
+          "node_modules",
+          "src/"
+        ]
+      }
     }
   },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: "module",
+    project: "./tsconfig.json",
+    ecmaFeatures: {
+      jsx: true
+    }
   },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [__dirname],
-      },
-      "webpack": {
-        "config": "webpack.config.js"
-      }
-    },
-  }
 }
+
