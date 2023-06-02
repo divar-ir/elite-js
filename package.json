@@ -6,6 +6,7 @@
   "description": "Hybrid react boilerplate 🚀.",
   "author": "Divar Front-End Chapter",
   "scripts": {
+    "dev:server": "node server.mjs --dev",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "yarn lint:script && yarn lint:style",
@@ -17,11 +18,13 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.12",
+    "fastify": "^4.17.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
+    "@fastify/vite": "^4.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
@@ -51,6 +54,7 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-scss": "^5.0.0",
+    "swc": "^1.0.11",
     "terser": "^5.17.6",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
