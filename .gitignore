@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#TODO: fix these shits from nodemon
+vite.config.js.timestamp-*
