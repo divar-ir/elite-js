@@ -1,3 +1,5 @@
+import useLoader from "../hooks/use-loader";
+
 export default function Home() {
   const data = useLoader();
   return (

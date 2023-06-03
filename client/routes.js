@@ -1,4 +1,4 @@
-export default getPageRoutes(import.meta.glob("./pages/**/*.jsx", { eager: true }));
+export default getPageRoutes(import.meta.glob("./views/**/*.jsx", { eager: true }));
 
 function getPageRoutes(importMap) {
   return (
@@ -10,7 +10,7 @@ function getPageRoutes(importMap) {
         console.log(path);
         return {
             path: path
-              // Remove /pages and .jsx extension
+              // Remove /views and .jsx extension
               .slice(7)
               .replace(/\/index$/, '')
               .replace(/\.[jt]sx?$/, '')

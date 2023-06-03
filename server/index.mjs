@@ -104,7 +104,7 @@ async function createViteServer(hmrPort) {
 }
 
 function getViewsPath() {
-  return path.join(__dirname, "../client/pages");
+  return path.join(__dirname, "../client/views");
 }
 
 function getViewFiles(viewsPath) {
