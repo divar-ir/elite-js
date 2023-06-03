@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useLoader from '../../hooks/use-loader'
 
 export default function ItemsIndex ({ todoList = [] }) {
+  const data = useLoader()
   return (
     <>
       <ul>{
@@ -12,6 +14,7 @@ export default function ItemsIndex ({ todoList = [] }) {
       <p>
         <Link to="/">Go to the index</Link>
       </p>
+      <code>{JSON.stringify(data)}</code>
     </>
   )
 }

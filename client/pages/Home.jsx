@@ -1,9 +1,15 @@
 export default function Home() {
-  return <h1>Home</h1>;
+  const data = useLoader();
+  return (
+    <>
+      <h1>Home</h1>
+      <code>{JSON.stringify(data)}</code>
+    </>
+  );
 }
 
 export async function loader() {
   return {
-    data: "home",
+    data: 'home',
   };
 }

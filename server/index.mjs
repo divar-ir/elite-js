@@ -15,7 +15,7 @@ const isProd = process.env.NODE_ENV === "production";
   console.log("http://localhost:5173");
 })();
 
-export async function createServer(hmrPort) {
+async function createServer(hmrPort) {
   const app = express();
 
   /**
