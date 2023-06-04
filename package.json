@@ -6,7 +6,7 @@
   "description": "Hybrid react boilerplate 🚀.",
   "author": "Divar Front-End Chapter",
   "scripts": {
-    "dev": "nodemon server.mjs",
+    "dev": "nodemon server.mjs --watch server.mjs",
     "build": "tsc && vite build",
     "lint": "yarn lint:script && yarn lint:style",
     "lint:script": "eslint src --ext ts,tsx,js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -31,12 +31,12 @@
     "@types/jest": "^29.5.2",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
     "@vitejs/plugin-legacy": "^4.0.4",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "compression": "^1.7.4",
-    "eslint": "^8.41.0",
+    "eslint": "^8.42.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
@@ -49,6 +49,7 @@
     "eslint-plugin-testing-library": "^5.11.0",
     "express": "^4.18.2",
     "nodemon": "^2.0.22",
+    "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "prettier-eslint-cli": "^7.1.0",
     "sass": "^1.62.1",
@@ -59,7 +60,6 @@
     "stylelint-scss": "^5.0.0",
     "terser": "^5.17.6",
     "typescript": "^5.0.2",
-    "vite": "^4.3.9",
-    "vite-plugin-eslint": "^1.8.1"
+    "vite": "^4.3.9"
   }
 }

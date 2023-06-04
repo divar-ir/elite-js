@@ -2,11 +2,11 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    'plugin:import/recommended',
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    'plugin:@typescript-eslint/recommended',
     "airbnb",
     "airbnb/hooks",
     "airbnb-typescript",
@@ -101,10 +101,8 @@ module.exports = {
     },
     "import/resolver": {
       node: {
-        moduleDirectory: [
-          "node_modules",
-          "src/"
-        ]
+        paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       }
     }
   },
