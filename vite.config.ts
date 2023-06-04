@@ -8,8 +8,11 @@ export default defineConfig({
     react(),
     eslintPlugin({ include: 'src/**/*.+(js|jsx|ts|tsx)', cache: false }),
     legacy({
-      targets: ["supports es6-module", "not dead", "not op_mini all", "not ie all"],
+      targets: ["supports es6-module", "not dead", "not op_mini all"],
       modernPolyfills: true,
     }),
   ],
+  build: {
+    minify: false,
+  },
 })
