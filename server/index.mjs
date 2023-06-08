@@ -33,32 +33,7 @@ async function createServer(hmrPort) {
     );
   }
 
-  app.use('*', async (req, res) => {
-    try {
-      const url = req.originalUrl;
-
-      let template = await getTemplate(url, vite)
-
-      // FIXME: data coming from loaders
-      const data = {
-        awesome: 'elite.js',
-      };
-
-      template = template.replace(
-        '<!--hydration-->',
-        `<script>window.hydration = ${JSON.stringify(data)}</script>`
-      );
-
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
-    } catch (e) {
-      if (!isProd) {
-        vite.ssrFixStacktrace(e);
-      }
-      // eslint-disable-next-line no-console
-      console.log(e.stack);
-      res.status(500).end(e.stack);
-    }
-  });
+  app.use('*', createSsfHandler(vite));
 
   return { app, vite };
 }
@@ -87,6 +62,35 @@ async function createViteServer(hmrPort) {
   });
 
   return viteServer;
+}
+
+function createSsfHandler(vite) {
+  return async (req, res) => {
+    try {
+      const url = req.originalUrl;
+  
+      let template = await getTemplate(url, vite);
+  
+      // FIXME: data coming from loaders
+      const data = {
+        awesome: 'elite.js',
+      };
+  
+      template = template.replace(
+        '<!--hydration-->',
+        `<script>window.hydration = ${JSON.stringify(data)}</script>`
+      );
+  
+      res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
+    } catch (e) {
+      if (!isProd) {
+        vite.ssrFixStacktrace(e);
+      }
+      // eslint-disable-next-line no-console
+      console.log(e.stack);
+      res.status(500).end(e.stack);
+    }
+  }
 }
 
 async function getTemplate(url, vite) {
