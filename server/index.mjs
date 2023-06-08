@@ -37,7 +37,7 @@ async function createServer(hmrPort) {
     try {
       const url = req.originalUrl;
 
-      let template = getTemplate(url, vite)
+      let template = await getTemplate(url, vite)
 
       // FIXME: data coming from loaders
       const data = {
