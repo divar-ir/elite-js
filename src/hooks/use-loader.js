@@ -1,5 +1,5 @@
 function useLoader() {
-  //TODO: complete this, make it reactive and ...
+  // TODO: complete this, make it reactive and ...
   return window.hydration;
 }
 

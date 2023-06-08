@@ -1,10 +1,11 @@
-import useLoader from "../hooks/use-loader";
+import useLoader from '../hooks/use-loader';
 
-export default function About() {
+export default function Second() {
   const data = useLoader();
+
   return (
     <>
-      <h1>About</h1>
+      <h1>second</h1>
       <code>{JSON.stringify(data)}</code>
     </>
   );
@@ -12,6 +13,6 @@ export default function About() {
 
 export async function loader() {
   return {
-    data: "about",
+    data: 'second',
   };
 }
