@@ -3,16 +3,17 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import legacy from '@vitejs/plugin-legacy';
 import eslintPlugin from 'vite-plugin-eslint';
-import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-const path = fileURLToPath(new URL(import.meta.url));
-const root = resolve(dirname(path), './');
 
 export default defineConfig({
-  root,
   esbuild: {
     jsxInject: 'import React from "react"',
+  },
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
   },
   plugins: [
     react(),

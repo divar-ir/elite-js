@@ -1,4 +1,4 @@
-import useLoader from '../hooks/use-loader';
+import useLoader from '@/hooks/use-loader';
 
 export default function Second() {
   const data = useLoader();

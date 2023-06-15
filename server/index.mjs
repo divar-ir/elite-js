@@ -1,20 +1,23 @@
+/* eslint-disable no-console */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
 
+import { getRouteProps, getServerSideMethods } from './utils.mjs'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = process.cwd();
 const isProd = process.env.NODE_ENV === 'production';
+const PORT = 5173;
 
-(async function start() {
+(async () => {
   const { app } = await createServer();
-  await app.listen(5173);
-  // eslint-disable-next-line no-console
-  console.log('app listening on port 5173, link: http://localhost:5173');
+  await app.listen(PORT);
+  console.log(`🚀 Elite 🚀 is on air: http://localhost:${PORT}`);
 })();
 
-async function createServer(hmrPort) {
+async function createServer() {
   const app = express();
 
   /**
@@ -22,7 +25,7 @@ async function createServer(hmrPort) {
    */
   let vite;
   if (!isProd) {
-    vite = await createViteServer(hmrPort);
+    vite = await createViteDevServer();
     app.use(vite.middlewares);
   } else {
     app.use(
@@ -33,7 +36,7 @@ async function createServer(hmrPort) {
     );
   }
 
-  app.use('*', createSsfHandler(vite));
+  app.use('*', createSSFHandler(vite));
 
   return { app, vite };
 }
@@ -42,7 +45,7 @@ function resolve(p) {
   return path.resolve(__dirname, p);
 }
 
-async function createViteServer(hmrPort) {
+async function createViteDevServer() {
   // eslint-disable-next-line import/no-extraneous-dependencies
   const vite = await import('vite');
   const viteServer = await vite.createServer({
@@ -54,9 +57,6 @@ async function createViteServer(hmrPort) {
         usePolling: true,
         interval: 100,
       },
-      hmr: {
-        port: hmrPort,
-      },
     },
     appType: 'custom',
   });
@@ -64,29 +64,39 @@ async function createViteServer(hmrPort) {
   return viteServer;
 }
 
-function createSsfHandler(vite) {
+function createSSFHandler(vite) {
   return async (req, res) => {
     try {
       const url = req.originalUrl;
-  
+
       let template = await getTemplate(url, vite);
-  
+
+      const {
+        location, matchedRoutes, route, params
+      } = getRouteProps(req);
+
+      const {
+        getSSFDataList,
+      } = getServerSideMethods(matchedRoutes);
+
+      console.log(getSSFDataList)
+
+
       // FIXME: data coming from loaders
       const data = {
         awesome: 'elite.js',
       };
-  
+
       template = template.replace(
         '<!--hydration-->',
         `<script>window.hydration = ${JSON.stringify(data)}</script>`
       );
-  
+
       res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
     } catch (e) {
       if (!isProd) {
         vite.ssrFixStacktrace(e);
       }
-      // eslint-disable-next-line no-console
       console.log(e.stack);
       res.status(500).end(e.stack);
     }

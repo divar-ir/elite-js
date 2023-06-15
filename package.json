@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.0.0",
   "license": "MIT",
-  "description": "Hybrid react boilerplate 🚀.",
+  "description": "Your Friendly Minimal React Framework 🚀.",
   "author": "Divar Front-End Chapter",
   "scripts": {
     "dev": "nodemon server/index.mjs",
@@ -41,6 +41,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jest-dom": "^4.0.3",

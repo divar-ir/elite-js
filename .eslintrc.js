@@ -91,9 +91,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    // project: "./tsconfig.json",
+    project: "./tsconfig.json",
     ecmaFeatures: {
       jsx: true,
+    },
+  },
+  settings: {
+    "import/resolver": {
+      typescript: {}
     },
   },
 };

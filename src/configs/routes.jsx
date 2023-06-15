@@ -1,6 +1,6 @@
-import Index from '../views/Index';
-import First from '../views/First';
-import Second from '../views/Second';
+import Index from '@/views/Index';
+import First from '@/views/First';
+import Second from '@/views/Second';
 
 export default [
   {
@@ -8,11 +8,16 @@ export default [
     element: <Index />,
   },
   {
-    path: '/first',
-    element: <First />,
-  },
-  {
-    path: '/second',
-    element: <Second />,
+    path: 'first',
+    children: [
+      {
+        index: true,
+        element: <First />,
+      },
+      {
+        path: '/first/second',
+        element: <Second />,
+      },
+    ],
   },
 ];
